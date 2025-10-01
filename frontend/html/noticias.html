@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícias</title>
+    <link rel="stylesheet" href="../css/noticias.css">
+    <script src="../js/noticias.js"></script>
+</head>
+
+<body class="tema-claro" id="body">
+
+    <header>
+        <h1>Notícias da WEB</h1>
+        <button onclick="alternar_tema()">Alternar Tema</button>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#body">Início</a></li>
+            <li><a href="#main">Artigos</a></li>
+            <li><a href="#form-cadastro">Cadastro</a></li>
+        </ul>
+    </nav>
+
+    <main id="main">
+        <section class="noticias" id="noticias"></section>
+
+        <!-- <section class="noticias">
+
+            <article class="noticia">
+                <img src="../img/p.jpg" onclick="abrirLightbox(this)" alt="p">
+                <h2>Título</h2>
+                <p>Resumo do artigo.</p>
+                <a href="#">link</a>
+            </article>
+
+            <article class="noticia">
+                <img src="../img/p.jpg" onclick="abrirLightbox(this)" alt="p">
+                <h2>Título</h2>
+                <p>Resumo do artigo.</p>
+                <a href="#">link</a>
+            </article>
+
+            <article class="noticia">
+                <img src="../img/p.jpg" onclick="abrirLightbox(this)" alt="p">
+                <h2>Título</h2>
+                <p>Resumo do artigo.</p>
+                <a href="#">link</a>
+            </article>
+
+            <article class="noticia">
+                <img src="../img/p.jpg" onclick="abrirLightbox(this)" alt="p">
+                <h2>Título</h2>
+                <p>Resumo do artigo.</p>
+                <a href="#">link</a>
+            </article>
+
+        </section> -->
+
+        <section class="form-cadastro" id="form-cadastro">
+            <h2>Cadastrar Nova Notícia</h2>
+            <form id="formNoticia">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" required>
+
+                <label for="conteudo">Conteúdo:</label>
+                <textarea id="conteudo" name="conteudo" rows="4" required></textarea>
+
+                <label for="autor">Autor:</label>
+                <input type="text" id="autor" name="autor" required>
+
+                <label for="data_publicacao">Data de Publicação:</label>
+                <input type="date" id="data_publicacao" name="data_publicacao" required>
+
+                <button type="submit" onclick="cadastrar_noticia()">Cadastrar Notícia</button>
+            </form>
+        </section>
+
+        <div id="lightbox" class="lightbox" onclick="fecharLightbox()">
+            <span class="fechar">&times;</span>
+            <img class="lightbox-img" id="lightbox-img" src="">
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 &VerticalBar; Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        exibir_noticias()
+    </script>
+
+</body>
+
+</html>
