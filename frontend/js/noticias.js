@@ -19,7 +19,7 @@ async function exibir_noticias() {
     container.innerHTML = "<p>Carregando notícias...</p>";
 
     try {
-        const resposta = await fetch("http://localhost:3000/noticias");
+        const resposta = await fetch("http://noticias-web-production.up.railway.app/noticias");
         if (!resposta.ok) throw new Error("Erro ao buscar notícias");
 
         const noticias = await resposta.json();
@@ -54,34 +54,7 @@ async function cadastrar_noticia() {
     };
 
     try {
-        const resposta = await fetch("http://localhost:3000/noticia", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(noticia)
-        });
-
-        if (!resposta.ok) throw new Error("Erro ao cadastrar notícia");
-
-        alert("Notícia cadastrada com sucesso!");
-        document.getElementById("formNoticia").reset();
-        exibir_noticias(); // Recarrega a lista de notícias
-
-    } catch (erro) {
-        console.error(erro);
-        alert("Falha ao cadastrar notícia.");
-    }
-}
-
-async function cadastrar_noticia() {
-    const noticia = {
-        titulo: document.getElementById("titulo").value,
-        conteudo: document.getElementById("conteudo").value,
-        autor: document.getElementById("autor").value,
-        data_publicacao: document.getElementById("data_publicacao").value
-    };
-
-    try {
-        const resposta = await fetch("http://localhost:3000/noticia", {
+        const resposta = await fetch("http://noticias-web-production.up.railway.app/noticia", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(noticia)
@@ -103,7 +76,7 @@ async function excluirNoticia(id) {
     if (!confirm(`Tem certeza que deseja excluir esta notícia?`)) return;
 
     try {
-        const resposta = await fetch(`http://localhost:3000/noticia/${id}`, {
+        const resposta = await fetch(`http://noticias-web-production.up.railway.app/noticia/${id}`, {
             method: "DELETE"
         });
 
