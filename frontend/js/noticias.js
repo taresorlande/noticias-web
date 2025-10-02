@@ -19,7 +19,7 @@ async function exibir_noticias() {
     container.innerHTML = "<p>Carregando notícias...</p>";
 
     try {
-        const resposta = await fetch("http://noticias-web-production.up.railway.app/noticias");
+        const resposta = await fetch("https://noticias-web-production.up.railway.app/noticias");
         if (!resposta.ok) throw new Error("Erro ao buscar notícias");
 
         const noticias = await resposta.json();
@@ -54,7 +54,7 @@ async function cadastrar_noticia() {
     };
 
     try {
-        const resposta = await fetch("http://noticias-web-production.up.railway.app/noticia", {
+        const resposta = await fetch("https://noticias-web-production.up.railway.app/noticia", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(noticia)
@@ -76,7 +76,7 @@ async function excluirNoticia(id) {
     if (!confirm(`Tem certeza que deseja excluir esta notícia?`)) return;
 
     try {
-        const resposta = await fetch(`http://noticias-web-production.up.railway.app/noticia/${id}`, {
+        const resposta = await fetch(`https://noticias-web-production.up.railway.app/noticia/${id}`, {
             method: "DELETE"
         });
 
