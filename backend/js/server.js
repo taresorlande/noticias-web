@@ -4,7 +4,12 @@ const { listarNoticias, inserirNoticia, excluirNoticia, criarTabelas } = require
 
 const app = express();
 
-app.use(cors()); // <-- Habilita CORS para todas as origens
+app.use(cors({
+  origin: ["http://127.0.0.1:5500", "http://localhost:5500", "https://taresorlande.github.io"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true
+}));
+
 app.use(express.json());
 
 criarTabelas()
