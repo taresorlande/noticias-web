@@ -1,8 +1,7 @@
--- Active: 1744304567888@@127.0.0.1@3306@jornal
 CREATE DATABASE IF NOT EXISTS jornal;
-
 USE jornal;
-drop table noticias;
+
+DROP TABLE noticias;
 CREATE TABLE IF NOT EXISTS noticias(
     id INT PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(250) NOT NULL,
