@@ -1,5 +1,21 @@
 const { conectar, desconectar } = require("./db");
 
+
+async function criarTabelas() {
+    const conexao = await conectar();
+
+    let query = `
+        CREATE TABLE IF NOT EXISTS noticias(
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        titulo VARCHAR(250) NOT NULL,
+        conteudo TEXT,
+        autor VARCHAR(100),
+        data_publicacao DATE
+    )`
+    await conexao.execute(query);
+    await desconectar(conexao);
+}
+
 async function listarNoticias() {
     const conexao = await conectar();
     let query = "SELECT * FROM noticias ORDER BY data_publicacao DESC";
@@ -32,4 +48,4 @@ async function excluirNoticia(id) {
     await desconectar(conexao);
 }
 
-module.exports = { listarNoticias, inserirNoticia, excluirNoticia };
+module.exports = { listarNoticias, inserirNoticia, excluirNoticia, criarTabelas };

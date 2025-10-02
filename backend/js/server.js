@@ -1,11 +1,13 @@
 const express = require('express');
 const cors = require('cors'); // <-- Importa o CORS
-const { listarNoticias, inserirNoticia, excluirNoticia } = require("./controller");
+const { listarNoticias, inserirNoticia, excluirNoticia, criarTabelas } = require("./controller");
 
 const app = express();
 
 app.use(cors()); // <-- Habilita CORS para todas as origens
 app.use(express.json());
+
+criarTabelas()
 
 app.get('/noticias', async (req, res) => {
     const noticias = await listarNoticias();

@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS jornal;
 
 USE jornal;
 drop table noticias;
-CREATE TABLE noticias(
+CREATE TABLE IF NOT EXISTS noticias(
     id INT PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(250) NOT NULL,
     conteudo TEXT,
